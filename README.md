@@ -75,16 +75,20 @@ MiniMaskFormer — Segmentation Transformer
 │   ├── Dropout_layer.py               # Custom dropout
 │   └── *.md                           # Theoretical explanations
 │
+|
+|
 ├── 📁 CNN/                            
 │   ├── 📁 Loop_based_cnn/             # Educational loop-based CNNs
 │   │   ├── Cnn_layers.py              # Manual convolution, pooling, batchnorm
 │   │   ├── Cnn_operations.py          # Pixel-by-pixel conv & backprop
 │   │   └── Cnn_initializers.py        # Kernel initialization
 │   │
+|   |
+|   |
+|   |
 │   ├── 📁 Vectorised_Cnn_operations/   # Optimized vectorized CNN version
 │   │   ├── Vec_cnn_Layers.py
 │   │   └── Vectorised_Cnn_operations.py
-│   │
 │   └── resnet.py                      # Custom handcrafted ResNet
 │
 ├── 📁 Custom_transformers/             
@@ -106,8 +110,6 @@ MiniMaskFormer — Segmentation Transformer
 │   ├── MiniDetr.py
 │   ├── MiniSegmentationMaskFormer.py
 │   └── test.ipynb
-│
-├── 📁 GANs/                            # (Planned) Generative Adversarial Networks
 │
 ├── 📁 DeepLearningNotebooks/           # Educational notebooks
 │   ├── single_perceptron.ipynb
