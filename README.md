@@ -141,13 +141,6 @@ MiniMaskFormer — Segmentation Transformer
 
 ---
 
-## 🧩 Future Work
-- Add **GANs** and **Diffusion Models**  
-- Implement **attention visualization** for Transformers  
-- Extend optimizers with **AdamW**, **LAMB**, and **Lion**  
-- Build an **educational dashboard** for gradient flow visualization  
-
----
 
 ## 🧑‍💻 Author
 📫 [abderraoufheboul@gmail.com]  
