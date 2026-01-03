@@ -1,16 +1,19 @@
-Deep Learning Framework “From Scratch” — From Perceptrons to Transformers, with Zero Black Boxes.
+Deep Learning Framework “From Scratch”
+From Perceptrons to Transformers, with Zero Black Boxes.
+"If you can't implement it, you don't understand it." — Richard Feynman
 
-"If you can't implement it, you don't understand it."
-— Richard Feynman
 🎯 Philosophy
-
 🧠 Understand, Don’t Just Use
-True mastery in deep learning comes from building, not just importing.
+True mastery in deep learning comes from building, not just importing. This project is a rebellion against abstraction, peeling back the layers of PyTorch/TensorFlow to reveal the mathematics underneath.
+
+📚 Theoretical Foundation
+This entire framework is the result of a rigorous study of the book Dive into Deep Learning.
+"d2l.ai" Every layer, optimizer, and architecture implemented here is a direct code translation of the mathematical theories and principles detailed in the book. I went beyond the exercises to build a unified, cohesive library.
+<img width="518" height="647" alt="image" src="https://github.com/user-attachments/assets/7f6f0bc6-8d2f-4c87-a1aa-13959e1e461d" />
 
 
-
-🏗️ Educational Foundation
-An ideal playground for those who want to truly understand how deep learning works under the hood.
+🏗️ Educational Playground
+An ideal resource for those who want to bridge the gap between theory (equations in the book) and practice (Python code), without relying on pre-built nn.Modules.
 
 🚀 What’s Implemented — From Scratch
 🧩 Core Framework
