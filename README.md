@@ -9,6 +9,8 @@ True mastery in deep learning comes from building, not just importing. This proj
 📚 Theoretical Foundation
 This entire framework is the result of a rigorous study of the book Dive into Deep Learning.
 "d2l.ai" Every layer, optimizer, and architecture implemented here is a direct code translation of the mathematical theories and principles detailed in the book. I went beyond the exercises to build a unified, cohesive library.
+
+
 <img width="518" height="647" alt="image" src="https://github.com/user-attachments/assets/7f6f0bc6-8d2f-4c87-a1aa-13959e1e461d" />
 
 
