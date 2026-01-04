@@ -1,40 +1,43 @@
-👁️ CNN Module: Handcrafted Vision Engine (Manual Logic)
+👁️ NeuroCore CNN Module: The Hybrid Vision Engine
+NeuroCore CNN is a research-grade implementation of Convolutional Neural Networks. It strips away the abstraction of standard deep learning libraries to expose the raw mathematical operations of Computer Vision.
 
-<img width="387" height="130" alt="image" src="https://github.com/user-attachments/assets/066a8894-2ea9-4ef8-b871-a8da999f2ebc" 
+This module is unique because it implements the Forward Pass logic entirely from scratch (using loops or vectorization) while leveraging PyTorch's autograd engine solely for gradient computation (.backward()). This offers the perfect balance between educational transparency and training stability.
 
-This module represents a deep dive into Computer Vision architectures. While it leverages PyTorch's .backward() for gradient computation, every single layer, operation, and architectural decision (like ResNet) has been built from scratch. It is a bridge between manual mathematical control and modern optimization.
+📂 Module Architecture
+The module is split into two distinct execution engines:
 
-🏗️ The Hybrid Approach
-The philosophy here is "Logical Transparency". By implementing the layers manually, I maintain full control over the feature extraction process while ensuring numerical stability through PyTorch's autograd engine.
+<img width="900" height="336" alt="image" src="https://github.com/user-attachments/assets/acba13fb-b90c-4182-ac3d-1074b8bb67a5" />
+🐢 Engine 1: Loop-Based (Educational)
+Located in Loop_based_cnn/
 
-📁 Loop_based_cnn/ (The Pedagogical Engine)
-Built for those who want to see how data moves through kernels without the "magic" of high-level APIs.
+This engine implements convolutions in their most raw algorithmic form. It is designed to demonstrate exactly how a kernel slides over an input volume.
 
-Manual Kernel Sliding: Explicit implementation of how a filter convolved over an image.
+1. Atomic Convolution (Conv2D)
+Unlike standard frameworks that hide the sliding window, this implementation uses explicit Python loops to calculate the dot product at every spatial location.
 
-Structure over Abstraction: Defines Cnn_layers.py to show the raw relationship between inputs, weights, and biases.
+Input: 3D Tensor (Channels, Height, Width)
 
-Initializers: Includes Cnn_initializers.py to control how neurons start their learning journey (He/Xavier).
+Kernel: 3D Tensor (Channels, kH, kW)
 
-📁 Vectorised_Cnn_operations/ (The Performance Engine)
-This is where theory meets speed.
+Output: 2D Map (H_out, W_out) (Single Feature Map)
 
-GEMM Optimization: Convolutions are transformed into Matrix Multiplications to leverage modern CPU/GPU efficiency.
+<img width="874" height="415" alt="image" src="https://github.com/user-attachments/assets/3fb7722f-4b31-4541-8cc3-4ff916186463" />
 
-Seamless Integration: Designed to work within a training loop that utilizes PyTorch tensors, allowing for high-speed training on datasets like MNIST or CIFAR.
-
-🔬 Key Components
-Handcrafted Layers:
-
-Custom Conv2D: Precise control over padding, stride, and channel mapping.
-
-Pooling: Manual implementation of spatial reduction logic (Max/Average).
-
-Batch Normalization: Custom batch_normalization_Layer.py to handle internal covariate shift.
-
-Architectural Mastery:
-
-ResNet (resnet.py): A from-scratch implementation of the Residual Network. It proves that the framework can handle complex "Skip Connections" and deep hierarchies.
+2. Manual Pooling
+Implements Max Pooling by manually slicing the tensor windows and selecting the maximum value.
 
 
-/>
+🐇 Engine 2: Vectorized (Performance)Located in Vectorised_Cnn_operations/This engine allows for training on real datasets (MNIST, CIFAR) by replacing loops with PyTorch tensor operations.1. 4D Kernel SupportUnlike the loop-based engine which handles single filters, the vectorized layers initialize full 4D weight tensors to handle entire batches of data simultaneously.Weight Shape: (Output_Channels, Input_Channels, Kernel_H, Kernel_W)2. Optimized InitializersCustom classes in Vec_cnn_Layers.py implement advanced initialization strategies to ensure gradient stability:Xavier (Glorot): Ideal for Sigmoid/Tanh activations.Normal: 
+<img width="657" height="290" alt="image" src="https://github.com/user-attachments/assets/c5fc13e6-0983-4c40-885c-4622c251b20c" />
+
+🧠 The Architecture: ResNetLocated in resnet.pyThe framework includes a fully functional implementation of Residual Networks (ResNet). It utilizes the custom components defined above to build:Residual Blocks: With manual skip connections ($F(x) + x$).Bottleneck Layers: For deeper variants (ResNet50+).Global Average Pooling: Implemented manually before the final Dense layer.
+
+🎯 Key Takeaways
+Transparency: You see exactly how padding changes dimensions and how stride skips pixels.
+
+Mathematics: Initializers are coded from their statistical formulas, not just imported strings.
+
+Flexibility: The system is modular. You can mix a Loop-based layer (for debugging) with a Vectorized layer (for speed).
+
+📜 License
+MIT License. Built strictly for educational and research purposes.
